@@ -4,6 +4,7 @@
  */
 
 import { Request, Response, NextFunction } from 'express';
+import filesService from '../services/files.service';
 
 /**
  * POST /file-upload
@@ -26,10 +27,12 @@ const uploadFile = async (
     // Get file buffer
     const fileBuffer = req.file.buffer;
 
-    console.log('fileBuffer', fileBuffer);
+    // Parse MP3 and count frames using service
+    const result = filesService.countMP3Frames(fileBuffer);
 
+    // Return frame count
     res.status(200).json({
-      message: 'File uploaded successfully',
+      frameCount: result.frameCount,
     });
   } catch (error) {
     next(error);
