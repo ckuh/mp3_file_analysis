@@ -6,7 +6,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 /**
- * POST /files/upload
+ * POST /file-upload
  * Accepts an MP3 file and returns the frame count
  */
 const uploadFile = async (

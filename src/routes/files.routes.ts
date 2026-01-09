@@ -9,9 +9,9 @@ import filesController from '../controllers/files.controller';
 const router = Router();
 
 /**
- * POST /upload
+ * POST /file-upload
  * Accepts an MP3 file and returns the frame count
  */
-router.post('/upload', uploadSingle, filesController.uploadFile);
+router.post('/file-upload', uploadSingle, filesController.uploadFile);
 
 export default router;
